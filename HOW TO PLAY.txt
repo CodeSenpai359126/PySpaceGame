@@ -1,0 +1,3 @@
+- use wasd to move around
+- you can shoot up to 3 bullets with space, after the bullets hit an enemy or leave the screen you can fire again
+- if you die and a gray window appears you can write your name for the scoreboard, finish the input with space
