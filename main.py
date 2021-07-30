@@ -3,6 +3,7 @@ import os.path
 import random
 import sys
 import xml.etree.ElementTree as ET
+import main
 
 from timeloop import Timeloop
 from datetime import timedelta
@@ -22,17 +23,17 @@ spaceship_hit = pygame.USEREVENT + 2
 score_add = pygame.USEREVENT + 3
 
 SPACESHIP_WIDTH, SPACESHIP_HEIGHT = 35, 35
-VEL = 6
-SPACESHIP_MAX_BULLETS = 4
-SPACESHIP_MAX_HEALTH = 10
+VEL = 5
+SPACESHIP_MAX_BULLETS = 3
+SPACESHIP_MAX_HEALTH = 3
 spaceship_bullets = []
 
 ENEMY_WIDTH, ENEMY_HEIGHT = 55, 55
 VEL_ENEMY = 1
 enemies = []
 enemy_bullets = []
-SPAWN_INTERVAL = 2
-FIRE_INTERVAL = 1.2
+SPAWN_INTERVAL = 1.5
+FIRE_INTERVAL = 1.1
 
 VEL_BULLETS = 8
 
@@ -57,7 +58,6 @@ pygame.display.set_caption("Test Game")
 FILE_NAME = 'scoreboard.xml'
 dom = ET.parse(FILE_NAME)
 root = dom.getroot()
-
 
 player = dom.findall('player')
 
@@ -154,7 +154,7 @@ def name_input():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_BACKSPACE:
                     user_text = user_text[:-1]
-                elif event.key == pygame.K_KP_ENTER:
+                elif event.key == pygame.K_SPACE:
                     return user_text
                 else:
                     user_text += event.unicode
